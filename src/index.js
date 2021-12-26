@@ -8,9 +8,9 @@ import {store} from './store/store' // import error on webpack 5 because of poly
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Provider store={{}}>  */}
+    <Provider store={store}>
        <App />
-    {/* </Provider> */}
+    </Provider>
   
 
   </React.StrictMode>,

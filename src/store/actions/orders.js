@@ -1,10 +1,11 @@
+// import { FETCH_ORDERS,FETCH_ORDERS_SUCCESS,FETCH_ORDER_ERROR } from "../reducers/orders"
 import axios from 'axios'
-import { response } from 'express'
 import {Dispatch} from 'redux'
 
 export const FETCH_ORDERS = 'FETCH_ORDERS'
 export const FETCH_ORDERS_SUCCESS = 'FETCH_ORDERS_SUCCESS'
 export const FETCH_ORDER_ERROR = 'FETCH_ORDER_ERROR'
+
 
 export const fetchOrders = () => async (dispatch) => {
     try{
@@ -14,7 +15,7 @@ export const fetchOrders = () => async (dispatch) => {
         console.log(response.data)
     }catch(e){
         console.log(e)
-        dispatch({type:FETCH_ORDER_ERROR,payload: response.data})
+        dispatch({type:FETCH_ORDER_ERROR,payload: "error"})
     }
 }
 

@@ -1,6 +1,8 @@
 import { Layout, Menu, Col,Row,Input,Button,Divider } from 'antd';
-// import { useActions } from '../../hooks/useActions';
+import { useActions } from '../../hooks/useActions';
 import {useSelector} from 'react-redux'
+import {fetchOrders} from '../../store/actions/index'
+import { useDispatch } from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import { UserOutlined, AppstoreOutlined,
     BarChartOutlined,
@@ -16,8 +18,15 @@ const {Search} = Input
 const { Header, Content, Sider } = Layout;
 
 export default function Order () {
-  // const {orders} = useSelector(state => state.orders)
-  // const {fetchOrders} = useActions()
+  const {orders} = useSelector(state => state.orders)
+  // const dispatch = useDispatch()
+  const {fetchOrders} = useActions()
+
+  const fetch = () => {
+    console.log('before')
+    fetchOrders()
+    console.log('after')
+  }
     return (
         <Layout >
         <Header className="header">
@@ -87,8 +96,8 @@ export default function Order () {
                     
                     />
                     <Row justify='space-between'>
-                    <Button type="primary" size="small" >
-                Primary
+                    <Button onClick={() => fetch} type="primary" size="small" >
+                Запрос
                 </Button>
                 <Button size="small" >Default</Button>
                 <Button size="small" >Def</Button>
