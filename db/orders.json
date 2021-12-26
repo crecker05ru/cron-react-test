@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "date": "Fri Dec 24 2021 18:42:28 GMT+0300 (Москва, стандартное время)",
+        "partner" : "Pavlonia",
+        "client" : "Sadam",
+        "clientNumber" : "89887777777",
+        "adres" : "ул. Ирчи Казака 11А",
+        "shipTo": "Как можно скорее",
+        "personsCount" : 0,
+        "PaymentMethod": "Наличный",
+        "promotion": "Без акции",
+        "total" : 250
+    }
+]

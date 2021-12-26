@@ -1,4 +1,6 @@
 import { Layout, Menu, Col,Row,Input,Button,Divider } from 'antd';
+// import { useActions } from '../../hooks/useActions';
+import {useSelector} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import { UserOutlined, AppstoreOutlined,
     BarChartOutlined,
@@ -14,6 +16,8 @@ const {Search} = Input
 const { Header, Content, Sider } = Layout;
 
 export default function Order () {
+  // const {orders} = useSelector(state => state.orders)
+  // const {fetchOrders} = useActions()
     return (
         <Layout >
         <Header className="header">
