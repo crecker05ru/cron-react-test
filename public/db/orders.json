@@ -5,11 +5,23 @@
         "partner" : "Pavlonia",
         "client" : "Sadam",
         "clientNumber" : "89887777777",
-        "adres" : "ул. Ирчи Казака 11А",
+        "address" : "ул. Ирчи Казака 11А",
         "shipTo": "Как можно скорее",
         "personsCount" : 0,
         "PaymentMethod": "Наличный",
         "promotion": "Без акции",
-        "total" : 250
+        "order" :[
+            {
+            "name": "Курица по французски",
+            "price": 289,
+            "count":  1,
+            "additionals" : [{
+                "name": "С гречкой",
+                "price": 0
+            }]
+        }
+    ],
+        "total" : 250,
+        "comments":"Коментарий"
     }
 ]

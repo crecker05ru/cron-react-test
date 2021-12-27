@@ -18,7 +18,8 @@ const {Search} = Input
 const { Header, Content, Sider } = Layout;
 
 export default function Order () {
-  const {orders} = useSelector(state => state.orders)
+  const state = useSelector(state => state.orders)
+  console.log('state',state)
   // const dispatch = useDispatch()
   const {fetchOrders} = useActions()
 
@@ -96,7 +97,7 @@ export default function Order () {
                     
                     />
                     <Row justify='space-between'>
-                    <Button onClick={() => fetch} type="primary" size="small" >
+                    <Button onClick={() => fetch()} type="primary" size="small" >
                 Запрос
                 </Button>
                 <Button size="small" >Default</Button>
