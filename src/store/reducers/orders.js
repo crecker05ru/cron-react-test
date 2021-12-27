@@ -11,7 +11,7 @@ export const ordersReducer = (state= initialState,action) => {
         case FETCH_ORDERS:
             return {...state,loading: true, error: null, orders:[]}
         case FETCH_ORDERS_SUCCESS:
-            return {...state,loading: true, error: null, orders:action.payload}
+            return {...state,loading: false, error: null, orders:action.payload}
         case FETCH_ORDER_ERROR:
             return {...state,loading: false, error: action.payload, orders:[]} 
         default: 
