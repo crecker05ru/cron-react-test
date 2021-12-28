@@ -1,14 +1,15 @@
 [
     {
         "id": 1,
-        "date": "16:17:43",
+        "date": "'28.12.2021",
+        "time" : "16:27:43", 
         "partner" : "Pavlonia",
         "client" : "Sadam",
         "clientNumber" : "89887777777",
         "address" : "ул. Ирчи Казака 11А",
         "shipTo": "Как можно скорее",
-        "personsCount" : 0,
-        "PaymentMethod": "Наличный",
+        "personsCount" : 1,
+        "paymentMethod": "Наличный",
         "promotion": "Без акции",
         "order" :[
             {
@@ -22,6 +23,32 @@
         }
     ],
         "total" : 250,
+        "comments":"Коментарий"
+    },
+    {
+        "id": 2,
+        "date": "'28.12.2021",
+        "time" : "16:29:43", 
+        "partner" : "Chinar",
+        "client" : "Haji",
+        "clientNumber" : "89888877788",
+        "address" : "ул. Ирчи Казака 11А",
+        "shipTo": "Как можно скорее",
+        "personsCount" : 2,
+        "paymentMethod": "Наличный",
+        "promotion": "Без акции",
+        "order" :[
+            {
+            "name": "Пицца пеперони",
+            "price": 339,
+            "count":  1,
+            "additionals" : [{
+                "name": "Салфетки",
+                "price": 0
+            }]
+        }
+    ],
+        "total" : 339,
         "comments":"Коментарий"
     }
 ]

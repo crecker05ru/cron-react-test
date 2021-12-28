@@ -2,7 +2,13 @@ import { Layout,Col,Row,Button,Divider,} from 'antd';
 
 const {Content} = Layout;
 
-export default function OrderDetails () {
+export default function OrderDetails ({orderCardDescription}) {
+    const {id,paymentMethod,
+        address,client,clientNumber,
+        comments,date,order,partner,
+        personsCount,promotion,
+        shipTo,total,time} = orderCardDescription
+    console.log('id',id)
     return (
         <>
          <Content
@@ -13,10 +19,10 @@ export default function OrderDetails () {
                     <Col>
                         <Row gutter={20}>
                             <Row></Row>
-                            <Col>N</Col>
+                            <Col>{id}</Col>
                         <Button size="small" >Default</Button>
                     </Row>
-                    <Row justify='space-between'><Col>Date</Col><Divider type="vertical" /><Col>Time</Col></Row>
+                    <Row justify='space-between'><Col>{date}</Col><Divider type="vertical" /><Col>{time}</Col></Row>
                 </Col>
                 <Col><Row justify='space-between' gutter={10}><Button size="small"  className="turquoise" style={{backgroundColor:"rgba(64,220,208, 1)"}}>Принять заказ</Button> <Button size="small" danger >Отменить заказ</Button></Row>
                 </Col>
@@ -25,44 +31,45 @@ export default function OrderDetails () {
             <Row >
                 <Col span={9}>Основная информация
                     <Row className='light-blue-text'> Клиент</Row>
-                    <Row>Sadam</Row>
+                    <Row>{client}</Row>
                     <Divider style={{margin: "0"}}/>
                     <Row className='light-blue-text'>Номер</Row>
-                    <Row>Sadam</Row>
+                    <Row>{clientNumber}</Row>
                     <Divider style={{margin: "0"}}/>
                     <Row className='light-blue-text'>Адрес</Row>
-                    <Row>Sadam</Row>
+                    <Row>{address}</Row>
                     <Divider style={{margin: "0"}}/>
                     <Row className='light-blue-text'>Партнер</Row>
-                    <Row>Sadam</Row>
+                    <Row>{partner}</Row>
                     <Divider style={{margin: "0"}}/>
                     <Row className='light-blue-text'>Доставить к</Row>
-                    <Row>Sadam</Row>
+                    <Row>{shipTo}</Row>
                     <Row className='light-blue-text'>кол-во персон</Row>
-                    <Row >Sadam</Row>
+                    <Row >{personsCount}</Row>
                     <Divider style={{margin: "0"}}/>
                     <Row className='light-blue-text'>Способ оплаты</Row>
-                    <Row>Sadam</Row>
+                    <Row>{paymentMethod}</Row>
                     <Divider style={{margin: "0"}}/>
                     <Row className='light-blue-text'>акция</Row>
-                    <Row>Sadam</Row>
+                    <Row>{promotion}</Row>
                     <Divider style={{margin: "0"}}/>
                     <Row className='light-blue-text'>Сумма заказа/к оплате</Row>
-                    <Row>Sadam</Row>
+                    <Row>{total}</Row>
                 </Col>
                 <Col span={1}><Divider type='vertical' /></Col>
                 <Col span={14}>Информация о заказе
-                <Row>Кур</Row>
+                <Row>{order[0].name} <span>{order.price}</span> <span>{order.count}</span></Row>
                 <Row>добавки</Row>
-                <Row>С гречкой - 0р</Row>
+                {order[0].additionals.map(add => (<Row>{add.name} - <span>{add.price}</span></Row>))}
                 <Divider/>
-                <Row>Кур</Row>
+                <Row>{order[0].name}</Row>
                 <Row>добавки</Row>
-                <Row>С гречкой - 0р</Row>
+                {order[0].additionals.map(add => (<Row>{add.name} - <span>{add.price}</span></Row>))}
+                
                 <Divider/>
                 <Col>
                 <Row style={{marginTop:"100px"}} >Комментарии к заказу</Row>
-                <Row>Тестовый заказ кронмаркет</Row>
+                <Row>{comments}</Row>
                 </Col>
                 </Col>
             </Row>

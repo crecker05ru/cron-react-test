@@ -2,10 +2,27 @@ import { Layout, Col,Row,Button,Divider,Input } from 'antd';
 import OrderDetails from './orderDetails';
 import {useSelector} from 'react-redux'
 import OrderCard from './orderCard';
+import {useState,useEffect} from 'react'
 const {Content } = Layout;
 const {Search} = Input;
 export default function ClientsOrders (){
     const {orders,loading} = useSelector(state => state.orders)
+    const [orderCardDescription,setOrderCardDescription] = useState(null)
+
+    const setDescription  = (order) => {
+     setOrderCardDescription(order)
+    }
+    useEffect(() => {
+        if(!orders.length){
+            return(loading)
+
+        }else if(orders.length >= 0 ){
+            setOrderCardDescription(orders[0])
+            console.log('orderCardDescription',orderCardDescription)
+        }
+
+    },[])
+
     return (
         <Layout >
         <Content
@@ -48,11 +65,12 @@ export default function ClientsOrders (){
             </Button>
                 </Row>
                 <Divider />
-                 {loading ? <h2>Loading...</h2> : orders.map(order => <article key={order.id}><OrderCard order={order} /></article>) }
+                 {loading ? <h2>Loading...</h2> : orders.map(order => <article key={order.id}><OrderCard order={order}  setDescription={setDescription}/></article>) }
         </Content>
             </Col>
             <Col flex="auto">
-                <OrderDetails />
+                {orderCardDescription ?  <OrderDetails orderCardDescription={orderCardDescription}/> :  <h2>Select Card</h2> }
+                
             </Col>
         </Row>
             
