@@ -12,24 +12,27 @@ export default function OrderDetails ({orderCardDescription}) {
     return (
         <>
          <Content
-            className="site-layout-background white"  
+            className="site-layout-background white padding-10"  
         >
-            2
-            <Row justify='space-between'>
+            <Row justify='space-between' >
                     <Col>
                         <Row gutter={20}>
                             <Row></Row>
-                            <Col>{id}</Col>
-                        <Button size="small" >Default</Button>
+                            <Col className='font-weight-400'>{id}</Col>
+                        <Button size="small" >Непринятый</Button>
                     </Row>
-                    <Row justify='space-between'><Col>{date}</Col><Divider type="vertical" /><Col>{time}</Col></Row>
+                    <Row justify='space-between'><Col>Дата: {date}</Col><span className='vertical-divider'> | </span><Col>Время: {time}</Col></Row>
                 </Col>
-                <Col><Row justify='space-between' gutter={10}><Button size="small"  className="turquoise" style={{backgroundColor:"rgba(64,220,208, 1)"}}>Принять заказ</Button> <Button size="small" danger >Отменить заказ</Button></Row>
+                <Col><Row justify='space-between' gutter={10}><Button size="small"  className="turquoise margin-right-10 text-align-center" style={{backgroundColor:"rgba(64,220,208, 1)"}}>принять заказ</Button> 
+                <Button size="small" danger >отменить заказ</Button></Row>
                 </Col>
             </Row>
             <Divider style={{marginTop: "5px",marginBottom:"5px"}}/>
             <Row >
-                <Col span={9}>Основная информация
+                <Col  span={9} className='order-main-info'>
+                    <div className='font-weight-600'>
+                      Основная информация
+                    </div>
                     <Row className='light-blue-text'> Клиент</Row>
                     <Row>{client}</Row>
                     <Divider style={{margin: "0"}}/>
@@ -57,18 +60,18 @@ export default function OrderDetails ({orderCardDescription}) {
                     <Row>{total}</Row>
                 </Col>
                 <Col span={1}><Divider type='vertical' /></Col>
-                <Col span={14}>Информация о заказе
-                <Row>{order[0].name} <span>{order.price}</span> <span>{order.count}</span></Row>
+                <Col span={14} className='order-main-info'><span className='font-weight-600'>Информация о заказе</span>
+
+                {order.map(ord => <div>
+                    <Row>{ord.name}-<span>{ord.price}р </span> <span> ({ord.count} шт.)</span></Row>
+                    
                 <Row>добавки</Row>
-                {order[0].additionals.map(add => (<Row>{add.name} - <span>{add.price}</span></Row>))}
+                {ord.additionals.map(add => (<Row>{add.name} - <span>{add.price}</span></Row>))}
                 <Divider/>
-                <Row>{order[0].name}</Row>
-                <Row>добавки</Row>
-                {order[0].additionals.map(add => (<Row>{add.name} - <span>{add.price}</span></Row>))}
-                
-                <Divider/>
+                </div>)}
+
                 <Col>
-                <Row style={{marginTop:"100px"}} >Комментарии к заказу</Row>
+                <Row style={{marginTop:"100px"}} className='font-weight-600' >Комментарии к заказу</Row>
                 <Row>{comments}</Row>
                 </Col>
                 </Col>

@@ -26,49 +26,50 @@ export default function ClientsOrders (){
     return (
         <Layout >
         <Content
-        className=" white inner-shadow"
+        className=" white inner-shadow "
         style={{
             margin: 0,
-            minHeight: 60,
+            minHeight: 70,
+            padding:15
         }}
         >
-            <div>Заказы клиентов</div>
+            <h2>Заказы клиентов</h2>
             <Row justify='start' gutter={10}>
-                <Col > <a href="/">В работе</a></Col>
-                <Col ><a href="/">Все заказы</a></Col>
+                <Col > <a href="/" className="text-decoration-none">В работе</a></Col>
+                <Col ><a href="/" className="text-decoration-none">Все заказы</a></Col>
             </Row>
         </Content>
         <Layout style={{ padding: '0 20px 20px' }}>
         <Content
         className="site-layout-background main-layout"
         >
-        Content
        
         <Row justify='space-between'  gutter={10}>
             <Col flex="300px">
             <Content
             className="site-layout-background white"
         >
-                1
                 <Search
                 placeholder="input search text"
-                allowClear               
+                allowClear 
+                className='border-radius-20 padding-10'              
                 />
-                <Row justify='space-between'>
+                <Row justify='space-between' className='padding-10'>
                 <Button onClick={() => fetch()} type="primary" size="small" >
-            Запрос
+            Все
             </Button>
-            <Button size="small" >Default</Button>
-            <Button size="small" >Def</Button>
-            <Button type="dashed" size="small" >
-            Dashed
-            </Button>
+            <Button size="small" style={{backgroundColor:"#f7f7f7"}} >Непринятые</Button>
+            <Button size="small" style={{backgroundColor:"#f7f7f7"}}>Готовится</Button>
+            <Button  size="small" style={{backgroundColor:"#f7f7f7"}} >В пути </Button>
                 </Row>
-                <Divider />
-                 {loading ? <h2>Loading...</h2> : orders.map(order => <article key={order.id}><OrderCard order={order}  setDescription={setDescription}/></article>) }
+                <Divider style={{margin: "0 0 10px 0",padding:"0 10px 0 10px"}}/>
+                <Content className='overflow-y-scroll height-500'>
+                {loading ? <h2>Loading...</h2> : orders.map(order => <article key={order.id}><OrderCard order={order}  setDescription={setDescription}/></article>) }
+                </Content>
+                
         </Content>
             </Col>
-            <Col flex="auto">
+            <Col flex="auto" >
                 {orderCardDescription ?  <OrderDetails orderCardDescription={orderCardDescription}/> :  <h2>Select Card</h2> }
                 
             </Col>
