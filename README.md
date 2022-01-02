@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+Before npm run start ,make sure that you deleted "homepage" in package.json or you don't see public files.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

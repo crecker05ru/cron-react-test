@@ -2,27 +2,40 @@ import { Layout, Col,Row,Button,Divider,Input } from 'antd';
 import OrderDetails from './orderDetails';
 import {useSelector} from 'react-redux'
 import OrderCard from './orderCard';
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useMemo} from 'react'
 const {Content } = Layout;
 const {Search} = Input;
 export default function ClientsOrders (){
     const {orders,loading} = useSelector(state => state.orders)
+    const [clientsOrders,setClientOrders] = useState([...orders])
     const [orderCardDescription,setOrderCardDescription] = useState(null)
-
+    const [searchQuery,setSearchQuery] = useState('')
+    console.log('clientsOrders',clientsOrders)
+    
     const setDescription  = (order) => {
      setOrderCardDescription(order)
     }
+
+    const searchedOrders = useMemo(()=> {
+        return clientsOrders.filter(order => order.date.includes(searchQuery.toLowerCase()))
+    },[searchQuery,clientsOrders])
+
     useEffect(() => {
-        if(!orders.length){
-            return(loading)
+        setClientOrders(orders)
+        setOrderCardDescription(orders[0])
+    })
+    // const defaultCard = () => {
+    //     setOrderCardDescription(orders[0])
+    //     console.log('orderCardDescription',orderCardDescription)
+    // }
+    // useEffect(()=> {
+    //     setTimeout(defaultCard, 500);
+    // },[])
 
-        }else if(orders.length >= 0 ){
-            setOrderCardDescription(orders[0])
-            console.log('orderCardDescription',orderCardDescription)
-        }
+    
+     
 
-    },[])
-
+    
     return (
         <Layout >
         <Content
@@ -40,7 +53,7 @@ export default function ClientsOrders (){
             </Row>
         </Content>
         <Layout style={{ padding: '0 20px 20px' }}>
-        <Content
+        <Content 
         className="site-layout-background main-layout"
         >
        
@@ -50,9 +63,11 @@ export default function ClientsOrders (){
             className="site-layout-background white"
         >
                 <Search
-                placeholder="input search text"
+                placeholder="Поиск по дате"
                 allowClear 
-                className='border-radius-20 padding-10'              
+                className='border-radius-20 padding-10' 
+                value={searchQuery} 
+                onChange={(e) => setSearchQuery(e.target.value)}
                 />
                 <Row justify='space-between' className='padding-10'>
                 <Button onClick={() => fetch()} type="primary" size="small" >
@@ -63,8 +78,8 @@ export default function ClientsOrders (){
             <Button  size="small" style={{backgroundColor:"#f7f7f7"}} >В пути </Button>
                 </Row>
                 <Divider style={{margin: "0 0 10px 0",padding:"0 10px 0 10px"}}/>
-                <Content className='overflow-y-scroll height-500'>
-                {loading ? <h2>Loading...</h2> : orders.map(order => <article key={order.id}><OrderCard order={order}  setDescription={setDescription}/></article>) }
+                <Content className='overflow-y-scroll height-415'>
+                {loading ? <h2>Loading...</h2> : searchedOrders.map(order => <article key={order.id}><OrderCard  order={order}  setDescription={setDescription}/></article>) }
                 </Content>
                 
         </Content>

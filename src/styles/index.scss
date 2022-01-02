@@ -1,6 +1,9 @@
 
 @import './orders.scss';
 @import 'antd/dist/antd.css';
+html{
+  // background: #f0f2f5;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,9 +12,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // overflow: hidden;
+  // background-color: darkgray;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.to-bottom{
+  margin: auto 0 0 0;
 }
