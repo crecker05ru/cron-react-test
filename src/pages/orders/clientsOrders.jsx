@@ -10,9 +10,11 @@ export default function ClientsOrders (){
     const [clientsOrders,setClientOrders] = useState([...orders])
     const [orderCardDescription,setOrderCardDescription] = useState(null)
     const [searchQuery,setSearchQuery] = useState('')
+    const [selected,setSelected] = useState(false)
     console.log('clientsOrders',clientsOrders)
     
     const setDescription  = (order) => {
+        setSelected(true)
      setOrderCardDescription(order)
     }
 
@@ -22,7 +24,10 @@ export default function ClientsOrders (){
 
     useEffect(() => {
         setClientOrders(orders)
-        setOrderCardDescription(orders[0])
+        if(!selected){
+            setOrderCardDescription(orders[0])
+        }
+        
     })
     // const defaultCard = () => {
     //     setOrderCardDescription(orders[0])
