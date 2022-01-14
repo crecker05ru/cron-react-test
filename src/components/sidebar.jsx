@@ -1,4 +1,5 @@
 import { Layout, Menu} from 'antd';
+import { Link } from "react-router-dom";
 import { UserOutlined,
     TeamOutlined,
     HomeFilled,
@@ -14,13 +15,13 @@ const {Sider} = Layout;
 
 export default function Sidebar () {
     return (
-        <Sider theme='light' width={200} className="site-layout-background">
-        <Menu theme='light' mode="inline" defaultSelectedKeys={['1']} >
+        <Sider theme='light' width={200} className="site-layout-background ">
+        <Menu theme='light' mode="inline" defaultSelectedKeys={['1']}  >
         <Menu.Item key="1" icon={<HomeFilled />}>
-          Главная
+          <Link to="/">Главная</Link>
         </Menu.Item>
         <Menu.Item key="2" icon={<TabletFilled />}>
-          Заказы
+        <Link to="orders">Заказы</Link>
         </Menu.Item>
         <Menu.Item key="3" icon={<LikeFilled />}>
           Отзывы
@@ -37,7 +38,7 @@ export default function Sidebar () {
         <Menu.Item key="7" icon={<TeamOutlined />}>
           Пользователи
         </Menu.Item>
-        <Menu.Item key="8" icon={<ExportOutlined />} style={{position:"absolute",bottom: "5px"}}>
+        <Menu.Item key="8" icon={<ExportOutlined />} style={{position:"absolute",bottom: "0"}}>
           Выйти из аккаунта
         </Menu.Item>
       </Menu>

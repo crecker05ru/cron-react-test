@@ -1,5 +1,6 @@
 
 @import './orders.scss';
+@import './sidebar.scss';
 @import 'antd/dist/antd.css';
 html{
   // background: #f0f2f5;
@@ -22,4 +23,13 @@ code {
 }
 .to-bottom{
   margin: auto 0 0 0;
+}
+.ant-layout{
+  // height: 100vh;
+  // height: 100%;
+  
+}
+.main-wrapper{
+  background-color: aqua;
+  height: 100vh;
 }

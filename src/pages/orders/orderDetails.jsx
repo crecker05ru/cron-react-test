@@ -1,30 +1,56 @@
 import { Layout,Col,Row,Button,Divider,} from 'antd';
+import { useParams } from "react-router-dom";
+import { useActions } from '../../hooks/useActions';
 
 const {Content} = Layout;
 
 export default function OrderDetails ({orderCardDescription}) {
+    let { orderId } = useParams();
+    const {changeOrderStatus} = useActions()
     const {id,paymentMethod,
         address,client,clientNumber,
         comments,date,order,partner,
         personsCount,promotion,
-        shipTo,total,time} = orderCardDescription
+        shipTo,total,time,orderStatus} = orderCardDescription
     console.log('id',id)
+
+
+
+    const status = orderStatus.isUnaccepted ? "Непринятый" 
+   : orderStatus.isPrepairing ? "Готовится" 
+   : orderStatus.isOnWay ? "В пути" 
+   : orderStatus.isCompleted ? "Завершен" 
+   : orderStatus.isCanceled ? "Отменен" 
+   : "В ожидании"
+   console.log('status',status)
+   
+    const acceptOrder = (id,orderStatus) => {
+        orderStatus.isPrepairing = true
+        changeOrderStatus(id,orderStatus)
+    }
+
+   const canceledOrder = () => {
+    orderStatus.isCanceled = true
+   }
     return (
         <>
          <Content
             className="site-layout-background white padding-10"  
         >
-            <Row justify='space-between' >
+            <Row justify='space-between'  wrap={false}>
                     <Col>
                         <Row gutter={20}>
                             <Row></Row>
                             <Col className='font-weight-400'><span className='font-weight-600'>{id}</span></Col>
-                        <Button size="small" >Непринятый</Button>
+                        <Button size="small" >{status}</Button>
                     </Row>
-                    <Row justify='space-between'><Col>Дата: {date}</Col><span className='vertical-divider'> | </span><Col>Время: {time}</Col></Row>
+                    <Row justify='space-between' wrap={false}><Col>Дата: {date}</Col><span className='vertical-divider'> | </span><Col>Время: {time}</Col></Row>
                 </Col>
-                <Col><Row justify='space-between' gutter={10}><Button size="small"  className="turquoise margin-right-10 text-align-center" style={{backgroundColor:"rgba(64,220,208, 1)"}}>принять заказ</Button> 
-                <Button size="small" danger >отменить заказ</Button></Row>
+                <Col>
+                <Row justify='space-between' gutter={10} wrap={false}>
+                    <Button size="small"  className="turquoise margin-right-10 text-align-center" style={{backgroundColor:"rgba(64,220,208, 1)"}} onClick={acceptOrder}>принять заказ</Button> 
+                    <Button size="small" danger onClick={canceledOrder}>отменить заказ</Button>
+                </Row>
                 </Col>
             </Row>
             <Divider style={{marginTop: "5px",marginBottom:"5px"}}/>
