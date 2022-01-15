@@ -24,19 +24,19 @@ export default function Sidebar () {
         <Link to="orders">Заказы</Link>
         </Menu.Item>
         <Menu.Item key="3" icon={<LikeFilled />}>
-          Отзывы
+        <Link to="reviews"> Отзывы </Link>
         </Menu.Item>
         <Menu.Item key="4" icon={<ThunderboltFilled />}>
-          Банеры
+        <Link to="banners">Банеры </Link>
         </Menu.Item>
         <Menu.Item key="5" icon={<FileExcelFilled />}>
-          Отчеты
+        <Link to="reports">Отчеты</Link>
         </Menu.Item>
         <Menu.Item key="6" icon={<UserOutlined />}>
-          Клиенты
+        <Link to="clients">Клиенты</Link>
         </Menu.Item>
         <Menu.Item key="7" icon={<TeamOutlined />}>
-          Пользователи
+        <Link to="users">Пользователи</Link>
         </Menu.Item>
         <Menu.Item key="8" icon={<ExportOutlined />} style={{position:"absolute",bottom: "0"}}>
           Выйти из аккаунта

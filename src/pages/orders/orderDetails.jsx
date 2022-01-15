@@ -4,9 +4,8 @@ import { useActions } from '../../hooks/useActions';
 
 const {Content} = Layout;
 
-export default function OrderDetails ({orderCardDescription}) {
+export default function OrderDetails ({orderCardDescription,changeOrderStatus}) {
     let { orderId } = useParams();
-    const {changeOrderStatus} = useActions()
     const {id,paymentMethod,
         address,client,clientNumber,
         comments,date,order,partner,
@@ -24,13 +23,18 @@ export default function OrderDetails ({orderCardDescription}) {
    : "В ожидании"
    console.log('status',status)
    
-    const acceptOrder = (id,orderStatus) => {
+   
+    const acceptOrder = () => {
         orderStatus.isPrepairing = true
         changeOrderStatus(id,orderStatus)
+        console.log("acceptOrder",orderStatus)
     }
 
-   const canceledOrder = () => {
-    orderStatus.isCanceled = true
+   const cancelOrder = () => {
+        orderStatus.isPrepairing = false
+        orderStatus.isCanceled = true
+        changeOrderStatus(id,orderStatus)
+        console.log("cancelOrder",orderStatus)
    }
     return (
         <>
@@ -49,7 +53,7 @@ export default function OrderDetails ({orderCardDescription}) {
                 <Col>
                 <Row justify='space-between' gutter={10} wrap={false}>
                     <Button size="small"  className="turquoise margin-right-10 text-align-center" style={{backgroundColor:"rgba(64,220,208, 1)"}} onClick={acceptOrder}>принять заказ</Button> 
-                    <Button size="small" danger onClick={canceledOrder}>отменить заказ</Button>
+                    <Button size="small" danger onClick={cancelOrder}>отменить заказ</Button>
                 </Row>
                 </Col>
             </Row>

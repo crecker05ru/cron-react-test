@@ -14,6 +14,11 @@ import MainPage from './pages/main/MainPage';
 import Orders from './pages/orders/Orders';
 import OrdersContainer from './pages/orders/OrdersContainer'
 import OrderDetails from './pages/orders/orderDetails';
+import ReviewsPage from './pages/reviews/ReviewsPage';
+import BannersPage from './pages/banners/BannersPage';
+import ReportsPage from './pages/reports/ReportsPage';
+import UsersPage from './pages/users/UsersPage';
+import ClientsPage from './pages/clients/ClientsPage';
 ReactDOM.render(
  
   
@@ -31,6 +36,11 @@ ReactDOM.render(
             <Route path="orders" element={<OrdersContainer />}>
               <Route path=":orderId" element={<OrderDetails />}/>
             </Route>
+            <Route path="reviews" element={<ReviewsPage/>}/>
+            <Route path="banners" element={<BannersPage/>}/>
+            <Route path="reports" element={<ReportsPage/>}/>
+            <Route path="clients" element={<ClientsPage/>}/>
+            <Route path="users" element={<UsersPage/>}/>
           </Route>
         </Routes>
       </Provider>

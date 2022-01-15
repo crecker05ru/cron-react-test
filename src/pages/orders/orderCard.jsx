@@ -4,7 +4,7 @@ const {Content } = Layout;
 const {Search} = Input;
 export default function OrderCard ({order,setDescription,orderCardDescription}) {
     const {id,date,client,partner,clientNumber,total,time,orderStatus} = order
-    let isActiveCard = (id == orderCardDescription.id)
+    let isActiveCard = (id == orderCardDescription?.id)
    //  const status = () =>  {
    //      if(orderStatus.isUnaccepted){
    //         return "Непринятый"

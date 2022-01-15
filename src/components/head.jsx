@@ -8,7 +8,7 @@ export default function Head (){
         <Header className="header">
         <Menu theme="dark"  >
             <Row justify="space-between">
-                <Col ><InstagramOutlined /></Col>
+                <Col ><InstagramOutlined /><span>CronMarket</span></Col>
                 <Col ><UserOutlined /></Col>
             </Row>
         </Menu>
