@@ -23,7 +23,15 @@
         }
     ],
         "total" : 250,
-        "comments":"Коментарий"
+        "comments":"Коментарий",
+        "orderStatus" : {
+                "isUnaccepted" : false,
+                "isPrepairing" : false,
+                "isOnWay" : false,
+                "isCompleted" : false,
+                "isCanceled" : false
+            }
+        
     },
     {
         "id": 2,
@@ -49,7 +57,14 @@
         }
     ],
         "total" : 339,
-        "comments":"Коментарий"
+        "comments":"Коментарий",
+        "orderStatus" : {
+            "isUnaccepted" : false,
+            "isPrepairing" : false,
+            "isOnWay" : false,
+            "isCompleted" : false,
+            "isCanceled" : false
+        }
     },
     {
         "id": 3,
@@ -83,7 +98,14 @@
         }
     ],
         "total" : 1438,
-        "comments":"Коментарий"
+        "comments":"Коментарий",
+        "orderStatus" : {
+            "isUnaccepted" : false,
+            "isPrepairing" : false,
+            "isOnWay" : false,
+            "isCompleted" : false,
+            "isCanceled" : false
+        }
     },{
         "id": 4,
         "date": "29.12.2021",
@@ -118,7 +140,14 @@
         }
     ],
         "total" : 560,
-        "comments":"Коментарий"
+        "comments":"Коментарий",
+        "orderStatus" : {
+            "isUnaccepted" : false,
+            "isPrepairing" : false,
+            "isOnWay" : true,
+            "isCompleted" : false,
+            "isCanceled" : false
+        }
     },{
         "id": 5,
         "date": "29.12.2021",
@@ -143,7 +172,14 @@
         }
     ],
         "total" : 560,
-        "comments":"Коментарий"
+        "comments":"Коментарий",
+        "orderStatus" : {
+            "isUnaccepted" : false,
+            "isPrepairing" : true,
+            "isOnWay" : false,
+            "isCompleted" : false,
+            "isCanceled" : false
+        }
     },{
         "id": 6,
         "date": "29.12.2021",
@@ -168,6 +204,13 @@
         }
     ],
         "total" : 450,
-        "comments":"Коментарий"
+        "comments":"Коментарий",
+        "orderStatus" : {
+            "isUnaccepted" : true,
+            "isPrepairing" : false,
+            "isOnWay" : false,
+            "isCompleted" : false,
+            "isCanceled" : false
+        }
     }
 ]
