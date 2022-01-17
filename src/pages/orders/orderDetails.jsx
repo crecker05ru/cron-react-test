@@ -1,5 +1,5 @@
 import { Layout,Col,Row,Button,Divider,} from 'antd';
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import { useActions } from '../../hooks/useActions';
 
 const {Content} = Layout;
@@ -65,7 +65,7 @@ export default function OrderDetails ({orderCardDescription,changeOrderStatus}) 
                     </Row>
                     <div className='order-main-info'>
                         <Row className='light-blue-text'> Клиент</Row>
-                        <Row>{client}</Row>
+                        <Row><Link to={`clients/${id}`} >{client}</Link></Row>
                         <Divider style={{margin: "0"}}/>
                         <Row className='light-blue-text'>Номер</Row>
                         <Row>{clientNumber}</Row>

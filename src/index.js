@@ -7,7 +7,8 @@ import { Provider } from 'react-redux'
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
+  Link
 } from "react-router-dom";
 import {store} from './store/store' // import error on webpack 5 because of polyfill
 import MainPage from './pages/main/MainPage';
@@ -18,7 +19,7 @@ import ReviewsPage from './pages/reviews/ReviewsPage';
 import BannersPage from './pages/banners/BannersPage';
 import ReportsPage from './pages/reports/ReportsPage';
 import UsersPage from './pages/users/UsersPage';
-import ClientsPage from './pages/clients/ClientsPage';
+import ClientsPageContainer from './pages/clients/ClientsPageContainer';
 ReactDOM.render(
  
   
@@ -39,8 +40,17 @@ ReactDOM.render(
             <Route path="reviews" element={<ReviewsPage/>}/>
             <Route path="banners" element={<BannersPage/>}/>
             <Route path="reports" element={<ReportsPage/>}/>
-            <Route path="clients" element={<ClientsPage/>}/>
+            <Route path="orders/clients/:clientId" element={<ClientsPageContainer/>}/>
             <Route path="users" element={<UsersPage/>}/>
+            <Route
+      path="*"
+      element={
+        <main style={{ padding: "1rem" }}>
+          <p>There's nothing here!</p>
+          <Link to="/"> Return</Link>
+        </main>
+      }
+    />
           </Route>
         </Routes>
       </Provider>

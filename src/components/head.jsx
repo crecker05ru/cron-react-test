@@ -1,4 +1,5 @@
 import { Layout, Menu, Col,Row} from 'antd';
+import { Link } from "react-router-dom";
 import {UserOutlined,InstagramOutlined} from '@ant-design/icons'
 
 const { Header} = Layout;
@@ -8,7 +9,7 @@ export default function Head (){
         <Header className="header">
         <Menu theme="dark"  >
             <Row justify="space-between">
-                <Col ><InstagramOutlined /><span>CronMarket</span></Col>
+                <Col ><Link to="/"> <InstagramOutlined /> <span>CronMarket</span></Link></Col>
                 <Col ><UserOutlined /></Col>
             </Row>
         </Menu>
