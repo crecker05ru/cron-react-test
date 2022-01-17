@@ -1,0 +1,265 @@
+[
+    {
+        "id": 1,
+        "clientName" : "Sadam",
+        "clientNumber" : 79604212351,
+        "orders" : [
+            {
+                "id" : 1,
+                "paymentMethod": "наличный",
+                "partner" : {
+                    "name": "Искандер",
+                    "address" : "ул. Ирчи Казака 11А"
+                },
+                "totalSum" : 332,
+                "totalSumToPay": 432,
+                "date" : "11.01.2022",
+                "time" : "13:08:00"
+            },
+            {
+                "id" : 2,
+                "paymentMethod": "наличный",
+                "partner" : {
+                    "name": "Павлония",
+                    "address" : "ул. Ирчи Казака 11А"
+                },
+                "totalSum" : 250,
+                "totalSumToPay": 349,
+                "date" : "11.01.2022",
+                "time" : "11:08:00"
+            }
+        ],
+        "earned" : 583,
+        "earnedTotal" : 5496,
+        "rating" : 3.2,
+        "comments" : {
+            "positive" : 11,
+            "negative" : 9
+        }
+
+
+    },
+    {
+        "id" : 2,
+        "clientName" : "Haji",
+        "clientNumber" : "89888877788",
+        "orders" :[
+            {
+                "id": 2,
+                "date": "28.12.2021",
+                "time" : "16:29:43", 
+                "partner" : "Chinar",
+                "client" : "Haji",
+                "clientNumber" : "89888877788",
+                "address" : "ул. Ирчи Казака 11А",
+                "shipTo": "Как можно скорее",
+                "personsCount" : 2,
+                "paymentMethod": "Наличный",
+                "promotion": "Без акции",
+                "order" :[
+                    {
+                    "name": "Пицца пеперони",
+                    "price": 339,
+                    "count":  1,
+                    "additionals" : [{
+                        "name": "Салфетки",
+                        "price": 0
+                    }]
+                }
+            ],
+                "total" : 339,
+                "comments":"Коментарий",
+                "orderStatus" : {
+                    "isUnaccepted" : false,
+                    "isPrepairing" : false,
+                    "isOnWay" : false,
+                    "isCompleted" : false,
+                    "isCanceled" : false
+                }
+            }
+        ],
+        "earned" : 665,
+        "earnedTotal" : 2223,
+        "rating" : 3.5,
+        "comments" : {
+            "positive" : 15,
+            "negative" : 4
+        }
+    },
+    {
+        "id" : 3,
+        "clientName" : "Shapi",
+        "clientNumber" : "89061770991",
+        "orders" : [
+            {
+                "id": 3,
+                "date": "29.12.2021",
+                "time" : "18:19:40", 
+                "partner" : "Sad",
+                "client" : "Shapi",
+                "clientNumber" : "89061770991",
+                "address" : "ул. Батырая 112",
+                "shipTo": "Как можно скорее",
+                "personsCount" : 4,
+                "paymentMethod": "Безналичный",
+                "promotion": "Без акции",
+                "order" :[
+                    {
+                    "name": "Пицца пеперони",
+                    "price": 439,
+                    "count":  2,
+                    "additionals" : [{
+                        "name": "Салфетки",
+                        "price": 0
+                    }]
+                },            {
+                    "name": "Жульен",
+                    "price": 280,
+                    "count":  2,
+                    "additionals" : [{
+                        "name": "Салфетки",
+                        "price": 0
+                    }]
+                }
+            ],
+                "total" : 1438,
+                "comments":"Коментарий",
+                "orderStatus" : {
+                    "isUnaccepted" : false,
+                    "isPrepairing" : false,
+                    "isOnWay" : false,
+                    "isCompleted" : false,
+                    "isCanceled" : false
+                }
+            }
+        ]
+    },{
+        "id" : 4,
+        "clientName" : "Salim",
+        "clientNumber" : "89282110301",
+        "orders" : [
+            {
+                "id": 4,
+                "date": "29.12.2021",
+                "time" : "18:22:11", 
+                "partner" : "Japengo",
+                "client" : "Salim",
+                "clientNumber" : "89282110301",
+                "address" : "ул. Танкавева 7",
+                "shipTo": "Как можно скорее",
+                "personsCount" : 2,
+                "paymentMethod": "Наличный",
+                "promotion": "Без акции",
+                "order" :[
+                    {
+                    "name": "Ролл цезарь",
+                    "price": 280,
+                    "count":  1,
+                    "additionals" : [{
+                        "name": "Сладкий соус",
+                        "price": 0
+                    }
+                ]
+                },      {
+                    "name": "Ролл ойси",
+                    "price": 280,
+                    "count":  1,
+                    "additionals" : [{
+                        "name": "Соевый соус",
+                        "price": 0
+                    }
+                ]
+                }
+            ],
+                "total" : 560,
+                "comments":"Коментарий",
+                "orderStatus" : {
+                    "isUnaccepted" : false,
+                    "isPrepairing" : false,
+                    "isOnWay" : true,
+                    "isCompleted" : false,
+                    "isCanceled" : false
+                }
+            }
+        ]
+    },
+    {
+        "id" : 5,
+        "clientName" : "Maksim",
+        "clientNumber" : "89382214422",
+        "orders" : [
+            {
+                "id": 5,
+                "date": "29.12.2021",
+                "time" : "18:44:13", 
+                "partner" : "Pascucci",
+                "client" : "Maksim",
+                "clientNumber" : "89382214422",
+                "address" : "ул. Гамидова 26",
+                "shipTo": "Как можно скорее",
+                "personsCount" : 2,
+                "paymentMethod": "Наличный",
+                "promotion": "Без акции",
+                "order" :[
+                    {
+                    "name": "Ролл калифорния",
+                    "price": 280,
+                    "count":  2,
+                    "additionals" : [{
+                        "name": "Соевый соус",
+                        "price": 0
+                    }]
+                }
+            ],
+                "total" : 560,
+                "comments":"Коментарий",
+                "orderStatus" : {
+                    "isUnaccepted" : false,
+                    "isPrepairing" : true,
+                    "isOnWay" : false,
+                    "isCompleted" : false,
+                    "isCanceled" : false
+                }
+            }
+        ]
+    },{
+        "id" : 6,
+        "clientName" : "Ramazan",
+        "clientNumber" : "89890070707",
+        "orders" : [
+            {
+                "id": 6,
+                "date": "29.12.2021",
+                "time" : "19:31:12", 
+                "partner" : "Gambit",
+                "client" : "Ramazan",
+                "clientNumber" : "89890070707",
+                "address" : "ул. Крылова",
+                "shipTo": "Как можно скорее",
+                "personsCount" : 1,
+                "paymentMethod": "Наличный",
+                "promotion": "Без акции",
+                "order" :[
+                    {
+                    "name": "Шашлык из баранины",
+                    "price": 450,
+                    "count":  1,
+                    "additionals" : [{
+                        "name": "Салфетки",
+                        "price": 0
+                    }]
+                }
+            ],
+                "total" : 450,
+                "comments":"Коментарий",
+                "orderStatus" : {
+                    "isUnaccepted" : true,
+                    "isPrepairing" : false,
+                    "isOnWay" : false,
+                    "isCompleted" : false,
+                    "isCanceled" : false
+                }
+            }
+        ]
+    }
+]
