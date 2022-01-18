@@ -41,6 +41,7 @@ ReactDOM.render(
             <Route path="banners" element={<BannersPage/>}/>
             <Route path="reports" element={<ReportsPage/>}/>
             <Route path="orders/clients/:clientId" element={<ClientsPageContainer/>}/>
+            <Route path="clients" element={<ClientsPageContainer/>}/>
             <Route path="users" element={<UsersPage/>}/>
             <Route
       path="*"

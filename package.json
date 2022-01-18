@@ -1,4 +1,5 @@
-{
+{ 
+  "homepage": "http://crecker05ru.github.io/cron-react-test",
   "name": "test-task",
   "version": "0.1.0",
   "private": true,

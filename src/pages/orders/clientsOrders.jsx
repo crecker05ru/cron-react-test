@@ -12,6 +12,7 @@ export default function ClientsOrders (){
     const [orderCardDescription,setOrderCardDescription] = useState(null)
     const [searchQuery,setSearchQuery] = useState('')
     const [selected,setSelected] = useState(false)
+    // const [searchedOrders,setSearchedOrders] = useState(clientsOrders)
     const [allOrders,setAllOrders] = useState(orders)
     const [acceptedOrders,setAcceptedOrders] = useState(null)
     const [prepairingOrders,setPrepairingOrders] = useState(null)
@@ -34,6 +35,17 @@ export default function ClientsOrders (){
             setAllOrders(orders)
         }
     },[clientsOrders])
+
+    // const searchQueryHandler = () => {
+    //         const searchFilter = ['client','clientNumber','date']
+    //         setSearchedOrders(clientsOrders.filter(
+    //             order => order[searchFilter[0]].toLowerCase().includes(searchQuery.toLowerCase()) 
+    //         || order[searchFilter[1]].toLowerCase().includes(searchQuery.toLowerCase())  
+    //         || order[searchFilter[2]].toLowerCase().includes(searchQuery.toLowerCase()) 
+    //         ) )
+    // }
+        
+  
 
     useEffect(()=>{
         if(orders){
@@ -71,12 +83,28 @@ export default function ClientsOrders (){
      setOrderCardDescription(order)
     }
 
+
+    // const searchedOrders = useMemo(()=> {
+    //     return clientsOrders.filter(order => order.date.includes(searchQuery.toLowerCase()))
+    // },[searchQuery,clientsOrders])
+    
     const searchedOrders = useMemo(()=> {
-        return clientsOrders.filter(order => order.date.includes(searchQuery.toLowerCase()))
+        const searchFilter = ['client','clientNumber','date']
+        return clientsOrders.filter(
+            order => order[searchFilter[0]].toLowerCase().includes(searchQuery.toLowerCase()) 
+        || order[searchFilter[1]].toLowerCase().includes(searchQuery.toLowerCase())  
+        || order[searchFilter[2]].toLowerCase().includes(searchQuery.toLowerCase()) 
+        ) 
     },[searchQuery,clientsOrders])
+
+    // const searchQueryHandler = () => {
+    //     const searchFilter = ['client','clientNumber','date']
+    //     const searched = orders.filter(order => order.date.includes(searchQuery.toLowerCase()))
+    // }
 
     useEffect(() => {
         setClientOrders(orders)
+        // setSearchedOrders(clientsOrders)
         if(!selected){
             setOrderCardDescription(orders[0])
         }
@@ -121,11 +149,12 @@ export default function ClientsOrders (){
             className="site-layout-background white"
         >
                 <Search
-                placeholder="Поиск по дате"
+                placeholder="Поиск по имени,номеру,дате"
                 allowClear 
                 className='border-radius-20 padding-10' 
                 value={searchQuery} 
                 onChange={(e) => setSearchQuery(e.target.value)}
+                // onSearch={searchQueryHandler}
                 />
                 <Row justify='space-between' className='padding-10 ' gutter={5}>
                 <Badge count={orders.length}>
