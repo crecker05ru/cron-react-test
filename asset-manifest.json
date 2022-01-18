@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cron-react-test/static/css/main.de3b2f50.css",
-    "main.js": "/cron-react-test/static/js/main.3c9e4887.js",
+    "main.css": "/cron-react-test/static/css/main.248ac547.css",
+    "main.js": "/cron-react-test/static/js/main.fbd518d6.js",
     "static/js/787.8f49eced.chunk.js": "/cron-react-test/static/js/787.8f49eced.chunk.js",
     "index.html": "/cron-react-test/index.html",
-    "main.de3b2f50.css.map": "/cron-react-test/static/css/main.de3b2f50.css.map",
-    "main.3c9e4887.js.map": "/cron-react-test/static/js/main.3c9e4887.js.map",
+    "main.248ac547.css.map": "/cron-react-test/static/css/main.248ac547.css.map",
+    "main.fbd518d6.js.map": "/cron-react-test/static/js/main.fbd518d6.js.map",
     "787.8f49eced.chunk.js.map": "/cron-react-test/static/js/787.8f49eced.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.de3b2f50.css",
-    "static/js/main.3c9e4887.js"
+    "static/css/main.248ac547.css",
+    "static/js/main.fbd518d6.js"
   ]
 }
