@@ -30,7 +30,7 @@ ReactDOM.render(
       </Provider>
    */}
     <BrowserRouter 
-    basename={process.env.PUBLIC_URL}
+    // basename={process.env.PUBLIC_URL}
     >
       <Provider store={store}>
         <Routes>
