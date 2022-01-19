@@ -8,7 +8,7 @@ import {Dispatch} from 'redux'
 export const fetchClients = () => async (dispatch) => {
     try{
         dispatch({type:FETCH_CLIENTS })
-        const response = await axios.get('../../../db/clients.json')
+        const response = await axios.get(process.env.PUBLIC_URL+'/db/clients.json')
         dispatch({type:FETCH_CLIENTS_SUCCESS,payload: response.data})
         console.log(response.data,"response.data")
     }catch(e){
