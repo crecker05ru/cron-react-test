@@ -212,5 +212,37 @@
             "isCompleted" : false,
             "isCanceled" : false
         }
+    },{
+        "id": 7,
+        "date": "29.12.2021",
+        "time" : "13:21:12", 
+        "partner" : "Gambit",
+        "client" : "Ramazan",
+        "clientNumber" : "89890070707",
+        "address" : "ул. Крылова",
+        "shipTo": "Как можно скорее",
+        "personsCount" : 1,
+        "paymentMethod": "Наличный",
+        "promotion": "Без акции",
+        "order" :[
+            {
+            "name": "Шашлык из баранины",
+            "price": 450,
+            "count":  1,
+            "additionals" : [{
+                "name": "Салфетки",
+                "price": 0
+            }]
+        }
+    ],
+        "total" : 450,
+        "comments":"Коментарий",
+        "orderStatus" : {
+            "isUnaccepted" : true,
+            "isPrepairing" : false,
+            "isOnWay" : false,
+            "isCompleted" : false,
+            "isCanceled" : false
+        }
     }
 ]
