@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cron-react-test/static/css/main.264e1653.css",
-    "main.js": "/cron-react-test/static/js/main.188b2b28.js",
-    "static/js/787.8f49eced.chunk.js": "/cron-react-test/static/js/787.8f49eced.chunk.js",
-    "index.html": "/cron-react-test/index.html",
-    "main.264e1653.css.map": "/cron-react-test/static/css/main.264e1653.css.map",
-    "main.188b2b28.js.map": "/cron-react-test/static/js/main.188b2b28.js.map",
-    "787.8f49eced.chunk.js.map": "/cron-react-test/static/js/787.8f49eced.chunk.js.map"
+    "main.css": "http://crecker05ru.github.io/cron-react-test/static/css/main.264e1653.css",
+    "main.js": "http://crecker05ru.github.io/cron-react-test/static/js/main.ea077c56.js",
+    "static/js/787.8f49eced.chunk.js": "http://crecker05ru.github.io/cron-react-test/static/js/787.8f49eced.chunk.js",
+    "index.html": "http://crecker05ru.github.io/cron-react-test/index.html",
+    "main.264e1653.css.map": "http://crecker05ru.github.io/cron-react-test/static/css/main.264e1653.css.map",
+    "main.ea077c56.js.map": "http://crecker05ru.github.io/cron-react-test/static/js/main.ea077c56.js.map",
+    "787.8f49eced.chunk.js.map": "http://crecker05ru.github.io/cron-react-test/static/js/787.8f49eced.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.264e1653.css",
-    "static/js/main.188b2b28.js"
+    "static/js/main.ea077c56.js"
   ]
 }
