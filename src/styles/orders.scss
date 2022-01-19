@@ -111,9 +111,11 @@
 }
 .ant-btn .anticon {
     transition: all ease 0.3s ;
+ 
+}
+.rotate-180{
+    transition: all ease 0.3s ;
     transform: rotate(180deg);
-    
-    
 }
 // .ant-btn .anticon:hover{
 //     transition: all ease 0.3s;

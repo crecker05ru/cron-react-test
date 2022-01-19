@@ -20,6 +20,27 @@ export default function ClientsOrders (){
     const [acceptedOrdersCount,setAcceptedOrdersCount] = useState(0)
     console.log('clientsOrders',clientsOrders)
     
+    function sortArray (arr) {
+        return arr.sort((a,b) => {
+            if(a.date < b.date) return -1
+            else if(a.date > b.date)  return +1
+            else if(a.date == b.date)  {
+                if(a.time < b.time) return -1
+                else if(a.time > b.time) return +1
+                return 0
+            }
+        })
+    }
+
+    useEffect(() => {
+
+            console.log('sort',sortArray(clientsOrders))
+
+    },[clientsOrders])
+
+    // console.log('sort',sortArray(clientsOrders))
+
+    // let arr = [{date: '28.12.2021'},{date: "27.12.2021"},{date: "26.12.2021"},{date: "29.12.2021"}]
     const changeOrderStatus = (id,orderStatus) => {
         const updatedOrders = [...orders]
         const requestedOrder = orders.filter(item => item.id == id)

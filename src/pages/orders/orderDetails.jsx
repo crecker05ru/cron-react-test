@@ -103,7 +103,7 @@ export default function OrderDetails ({orderCardDescription,changeOrderStatus}) 
                 <Col span={14} ><span className='font-weight-600'>Информация о заказе</span>
                     <div className='order-main-info'>
                     {order.map(ord => <div key={ord.name} >
-                    <Row >{ord.name}-<span>{ord.price}р </span> <span> ({ord.count} шт.)</span><Button type="link" onClick={isClosedHandler}><DownOutlined  className={isClosed?"closed":""}/></Button></Row>
+                    <Row >{ord.name}-<span>{ord.price}р </span> <span> ({ord.count} шт.)</span><Button type="link" onClick={isClosedHandler}><DownOutlined  className={isClosed?"rotate-180 closed ":"rotate-180"}/></Button></Row>
                     {isClosed ? <> </>
                      : <div className='padding-left-10'>
                      <Row >добавки</Row>
