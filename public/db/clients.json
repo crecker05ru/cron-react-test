@@ -5,28 +5,72 @@
         "clientNumber" : 79604212351,
         "orders" : [
             {
-                "id" : 1,
-                "paymentMethod": "наличный",
-                "partner" : {
-                    "name": "Искандер",
-                    "address" : "ул. Ирчи Казака 11А"
-                },
-                "totalSum" : 332,
-                "totalSumToPay": 432,
-                "date" : "11.01.2022",
-                "time" : "13:08:00"
+                "id": 1,
+                "date": "28.12.2021",
+                "time" : "16:27:43", 
+                "partner" : "Pavlonia",
+                "client" : "Sadam",
+                "clientNumber" : "89887777777",
+                "address" : "ул. Ирчи Казака 11А",
+                "shipTo": "Как можно скорее",
+                "personsCount" : 1,
+                "paymentMethod": "Наличный",
+                "promotion": "Без акции",
+                "order" :[
+                    {
+                    "name": "Курица по французски",
+                    "price": 289,
+                    "count":  1,
+                    "additionals" : [{
+                        "name": "С гречкой",
+                        "price": 0
+                    }]
+                }
+            ],
+                "total" : 250,
+                "comments":"Коментарий",
+                "orderStatus" : {
+                        "isUnaccepted" : false,
+                        "isPrepairing" : false,
+                        "isOnWay" : false,
+                        "isCompleted" : false,
+                        "isCanceled" : false
+                    }
+                
             },
             {
-                "id" : 2,
-                "paymentMethod": "наличный",
-                "partner" : {
-                    "name": "Павлония",
-                    "address" : "ул. Ирчи Казака 11А"
-                },
-                "totalSum" : 250,
-                "totalSumToPay": 349,
-                "date" : "11.01.2022",
-                "time" : "11:08:00"
+                "id": 1,
+                "date": "26.12.2021",
+                "time" : "12:11:12", 
+                "partner" : "Japengo",
+                "client" : "Sadam",
+                "clientNumber" : "89887777777",
+                "address" : "ул. Ирчи Казака 11А",
+                "shipTo": "Как можно скорее",
+                "personsCount" : 1,
+                "paymentMethod": "Наличный",
+                "promotion": "Без акции",
+                "order" :[
+                    {
+                    "name": "Ролл Филадельфия",
+                    "price": 289,
+                    "count":  1,
+                    "additionals" : [{
+                        "name": "Соус",
+                        "price": 0
+                    }]
+                }
+            ],
+                "total" : 289,
+                "comments":"Коментарий",
+                "orderStatus" : {
+                        "isUnaccepted" : false,
+                        "isPrepairing" : false,
+                        "isOnWay" : false,
+                        "isCompleted" : false,
+                        "isCanceled" : false
+                    }
+                
             }
         ],
         "earned" : 583,

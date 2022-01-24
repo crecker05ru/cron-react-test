@@ -8,12 +8,16 @@ const {Content } = Layout;
 const {Search} = Input;
 export default function ClientsOrders (){
     const {orders,loading} = useSelector(state => state.orders)
-    const [clientsOrders,setClientOrders] = useState([...orders])
+
+    const [clientsOrders,setClientOrders] = useState([...orders]) //?
+    const [displayedOrders,setDisplayedOrders] = useState([...orders])
+    const [allOrders,setAllOrders] = useState(orders)
     const [orderCardDescription,setOrderCardDescription] = useState(null)
     const [searchQuery,setSearchQuery] = useState('')
+        // const [searchedOrders,setSearchedOrders] = useState(clientsOrders)
     const [selected,setSelected] = useState(false)
-    // const [searchedOrders,setSearchedOrders] = useState(clientsOrders)
-    const [allOrders,setAllOrders] = useState(orders)
+
+    
     const [acceptedOrders,setAcceptedOrders] = useState(null)
     const [prepairingOrders,setPrepairingOrders] = useState(null)
     const [onWayOrders,setOnWayOrders] = useState(null)
@@ -69,25 +73,27 @@ export default function ClientsOrders (){
   
 
     useEffect(()=>{
-        if(orders){
+        if(orders.length){
             const acceptedOrders = [...orders].filter(item => item.orderStatus.isUnaccepted == true)
             setAcceptedOrders(acceptedOrders)
-        }
-    },[clientsOrders])
-
-    useEffect(()=>{
-        if(orders){
             const onWayOrders = [...orders].filter(item => item.orderStatus.isOnWay == true)
             setOnWayOrders(onWayOrders)
-        }
-    },[clientsOrders])
-
-    useEffect(()=>{
-        if(orders){
             const prepairingOrders = [...orders].filter(item => item.orderStatus.isPrepairing == true)
             setPrepairingOrders(prepairingOrders)
         }
-    },[clientsOrders])
+    },[orders])
+
+    // useEffect(()=>{
+    //     if(orders){
+
+    //     }
+    // },[clientsOrders])
+
+    // useEffect(()=>{
+    //     if(orders){
+
+    //     }
+    // },[clientsOrders])
     
 
     console.log(acceptedOrders)
@@ -112,7 +118,7 @@ export default function ClientsOrders (){
     const searchedOrders = useMemo(()=> {
         const searchFilter = ['client','clientNumber','date']
         return clientsOrders.filter(
-            order => order[searchFilter[0]].toLowerCase().includes(searchQuery.toLowerCase()) 
+        order => order[searchFilter[0]].toLowerCase().includes(searchQuery.toLowerCase()) 
         || order[searchFilter[1]].toLowerCase().includes(searchQuery.toLowerCase())  
         || order[searchFilter[2]].toLowerCase().includes(searchQuery.toLowerCase()) 
         ) 
