@@ -2,13 +2,17 @@ import { Layout,Col,Row,Button,Divider,} from 'antd';
 import { useParams,Link } from "react-router-dom";
 import { useActions } from '../../hooks/useActions';
 import {DownOutlined} from  '@ant-design/icons'
-import {useState} from 'react';
+import {useState,useRef} from 'react';
+import AdditionalList from '../../generics/AdditionalList';
 
 const {Content} = Layout;
 
 export default function OrderDetails ({orderCardDescription,changeOrderStatus}) {
     let { orderId } = useParams();
     const [isClosed,setIsClosed] = useState(false)
+    const arrowEl = useRef()
+    console.log('arrowEl',arrowEl)
+
     const {id,paymentMethod,
         address,client,clientNumber,
         comments,date,order,partner,
@@ -25,12 +29,28 @@ export default function OrderDetails ({orderCardDescription,changeOrderStatus}) 
    : orderStatus.isCanceled ? "Отменен" 
    : "В ожидании"
    console.log('status',status)
+
+   const ordersStatusChanger = status === "В ожидании" ? "Принять заказ" 
+   :status ===  "Готовится"  ? "В пути"
+   :status === "В пути" ? "Завершить" 
+   : "Принять заказ" 
    
    
     const acceptOrder = () => {
         orderStatus.isPrepairing = true
+        orderStatus.isUnaccepted = false
         changeOrderStatus(id,orderStatus)
         console.log("acceptOrder",orderStatus)
+    }
+    const orderOnWay = () => {
+        orderStatus.isPrepairing = false
+        orderStatus.isOnWay = true
+        changeOrderStatus(id,orderStatus)
+    }
+    const completeOrder = () => {
+        orderStatus.isOnWay = false
+        orderStatus.isCompleted = true
+        changeOrderStatus(id,orderStatus)
     }
 
    const cancelOrder = () => {
@@ -42,6 +62,20 @@ export default function OrderDetails ({orderCardDescription,changeOrderStatus}) 
 
    const isClosedHandler = () => {
        setIsClosed(!isClosed)
+   }
+   const ordersStatusChangerHandler = () => {
+       console.log('ordersStatusChanger',ordersStatusChanger)
+       if(ordersStatusChanger === "Принять заказ"){
+        acceptOrder()
+       }
+       if(ordersStatusChanger === "В пути"){
+        orderOnWay()
+       }
+       if(ordersStatusChanger === "Завершить" ){
+        completeOrder()
+       }
+
+       
    }
     return (
         <>
@@ -59,7 +93,11 @@ export default function OrderDetails ({orderCardDescription,changeOrderStatus}) 
                 </Col>
                 <Col>
                 <Row justify='space-between' gutter={10} wrap={false}>
-                    <Button size="small"  className="turquoise margin-right-10 text-align-center" style={{backgroundColor:"rgba(64,220,208, 1)"}} onClick={acceptOrder}>принять заказ</Button> 
+                    <Button size="small"  className="turquoise margin-right-10 text-align-center" 
+                    style={{backgroundColor:"rgba(64,220,208, 1)"}} 
+                    onClick={ordersStatusChangerHandler}>{ordersStatusChanger}
+                    </Button>
+                     
                     <Button size="small" danger onClick={cancelOrder}>отменить заказ</Button>
                 </Row>
                 </Col>
@@ -102,10 +140,12 @@ export default function OrderDetails ({orderCardDescription,changeOrderStatus}) 
                 <Col span={1}><Divider type='vertical' /></Col>
                 <Col span={14} ><span className='font-weight-600'>Информация о заказе</span>
                     <div className='order-main-info'>
-                    {order.map(ord => <div key={ord.name} >
-                    <Row >{ord.name}-<span>{ord.price}р </span> <span> ({ord.count} шт.)</span><Button type="link" onClick={isClosedHandler}><DownOutlined  className={isClosed?"rotate-180 closed ":"rotate-180"}/></Button></Row>
+                    {/* {order.map(ord => <div key={ord.name} >
+                    <Row >{ord.name}-<span>{ord.price}р </span> <span> ({ord.count} шт.)</span>
+                    <Button type="link" onClick={isClosedHandler}><DownOutlined  className={isClosed?"rotate-180 closed ":"rotate-180"}/></Button>
+                    </Row>
                     {isClosed ? <> </>
-                     : <div className='padding-left-10'>
+                     : <div className='padding-left-10' ref={arrowEl}>
                      <Row >добавки</Row>
                      {ord.additionals.map(add => (<Row key={add.name}>{add.name} - <span>{add.price}</span></Row>))}
                      
@@ -114,7 +154,8 @@ export default function OrderDetails ({orderCardDescription,changeOrderStatus}) 
                      }
                     
                 
-                </div>)}
+                </div>)} */}
+                <AdditionalList order={order}/>
 
                 <Col>
                 <Row style={{marginTop:"100px"}} className='font-weight-600' >Комментарии к заказу</Row>

@@ -3,23 +3,17 @@ import OrderDetails from './orderDetails';
 import {useSelector} from 'react-redux'
 import OrderCard from './orderCard';
 import React from 'react'
+import CustomBadgeButton from './../../generics/CustomBadgeButton';
 const {Content } = Layout;
 const {Search} = Input;
 
 export default function ClOrders (){
     const {orders,loading} = useSelector(state => state.orders)
     const [clientsOrders,setClientOrders] = React.useState(orders)
-    // const [allOrders,setAllOrders] = React.useState()
     const [displayedOrders,setDisplayedOrders] = React.useState(null)
-    // const [ordersCount,setOrdersCount] = React.useState({
-    //     isUnaccepted:0,
-    //     isOnWay: 0,
-    //     isPrepairing:0
-    // })
     const [orderCardDescription,setOrderCardDescription] = React.useState(null)
     const [searchQuery,setSearchQuery] = React.useState('')
     const [selected,setSelected] = React.useState(false)
-    // console.log('ordersCount',ordersCount)
     console.log('displayedOrders',displayedOrders)
     
     // function sortArray (arr) {
@@ -37,16 +31,64 @@ export default function ClOrders (){
     // React.useEffect(() => {
     //         console.log('sort',sortArray(displayedOrders))
     // },[displayedOrders])
+
     const filteredOrders = React.useMemo(() => {
         console.log(orders)
-            const isUnaccepted = orders.filter(item => item.orderStatus.isUnaccepted == true)
-            const isOnWay = orders.filter(item => item.orderStatus.isOnWay == true)
-            const isPrepairing = orders.filter(item => item.orderStatus.isPrepairing == true)
-            return {isUnaccepted ,
+            const allOrders = clientsOrders.filter(item => item.orderStatus.isCompleted == false)
+            const isUnaccepted = clientsOrders.filter(item => item.orderStatus.isUnaccepted == true)
+            const isOnWay = clientsOrders.filter(item => item.orderStatus.isOnWay == true)
+            const isPrepairing = clientsOrders.filter(item => item.orderStatus.isPrepairing == true)
+            return {allOrders,isUnaccepted ,
             isOnWay,
             isPrepairing}
 
-    },[clientsOrders])
+    },[orders,clientsOrders])
+
+    const cardButtons = () => {
+        // for(let key of Object.keys(filteredOrders))
+
+        // for(let key in filteredOrders)
+        // {
+        //     console.log('filteredOrders - key',key)
+        //     return(
+        //         <CustomBadgeButton 
+        //         count={filteredOrders[key].length} 
+        //         onClick={() => changeDisplayedOrders([key])}
+        //         children={[key]}
+        //         />
+        //     )
+        // }
+        const keys = Object.keys(filteredOrders)
+        console.log('keys ',keys )
+        // keys.forEach(key => {
+        //     console.log('filteredOrders - key',key)
+        //     return(
+        //         <CustomBadgeButton 
+        //         count={filteredOrders[key].length} 
+        //         onClick={() => changeDisplayedOrders([key])}
+        //         children={[key]}
+        //         />
+        //     )
+        // })
+        return(
+            <>
+            {keys.map(key => {
+                {console.log('key ',key ,filteredOrders)}
+                {console.log('filteredOrders[key]',filteredOrders[key])}
+                <CustomBadgeButton 
+                count={filteredOrders[key].length} 
+                onClick={() => changeDisplayedOrders([key])}
+                children={[key]}
+                />
+            })}
+            </>
+        )
+    }
+    
+    // React.useEffect(()=>{
+    //     cardButtons()
+    //     console.log('cardButtons()',cardButtons())
+    // },[])
     console.log('filteredOrders',filteredOrders)
     const changeDisplayedOrders = (filter) => {
             // if(filter === "isUnaccepted"){
@@ -78,6 +120,7 @@ export default function ClOrders (){
         requestedOrder.orderStatus = orderStatus
         [updatedOrders] = requestedOrder 
         setClientOrders(updatedOrders)
+        // setDisplayedOrders(filteredOrders.allOrders)
         console.log('orders',orders)
         console.log("changeOrderStatus",requestedOrder)
     }
@@ -88,40 +131,24 @@ export default function ClOrders (){
     }
     
     const searchedOrdersHandler = React.useCallback(()=> {
-        const searchFilter = ['client','clientNumber','date']
+        const searchFilter = ['client','clientNumber','id']
         let searcheOrders = clientsOrders.filter(
             order => order[searchFilter[0]].toLowerCase().includes(searchQuery.toLowerCase()) 
             || order[searchFilter[1]].toLowerCase().includes(searchQuery.toLowerCase())  
-            || order[searchFilter[2]].toLowerCase().includes(searchQuery.toLowerCase()) 
+            || order[searchFilter[2]].toString().includes(searchQuery.toLowerCase()) 
             ) 
         setDisplayedOrders(searcheOrders)
     },[searchQuery,setClientOrders])
 
     React.useEffect(() => {
         setClientOrders(orders)
-        setDisplayedOrders(orders)
+        setDisplayedOrders(filteredOrders.allOrders)
         // setDisplayedOrders(allOrders.allOrders)
         if(!selected){
             setOrderCardDescription(orders[0])
         }
-    },[orders])
-    // React.useEffect(() => { // устанавливает значения счетчика над кнопкой фильтрации
-    //     setOrdersCount({
-    //       allOrders: clientsOrders.length,
-    //       isUnaccepted: clientsOrders?.filter(item => item.orderStatus.isUnaccepted == true).length,
-    //       isOnWay: clientsOrders?.filter(item => item.orderStatus.isOnWay == true).length,
-    //       isPrepairing: clientsOrders?.filter(item => item.orderStatus.isPrepairing == true).length
-    //     })
-    //   }, [clientsOrders]);
-    // React.useEffect(()=> {
-    //     // if(clientsOrders){
-            
-    //     // }
-    //     setDisplayedOrders(orders)
-    // },[])
+    },[orders,clientsOrders])
      
-
-    
     return (
         <Layout >
         <Content
@@ -157,14 +184,25 @@ export default function ClOrders (){
                 onSearch={searchedOrdersHandler}
                 />
                 <Row justify='space-between' className='padding-10 ' gutter={5}>
-                <Badge count={orders.length}>
+                {/* <Badge count={orders.length}>
                     <Button onClick={() => setDisplayedOrders(clientsOrders)} type="primary" size="small" >
                      Все
                     </Button> 
-                </Badge>
-                
-            
-            <Badge 
+                </Badge> */}
+                {/* {cardButtons()} */}
+            <CustomBadgeButton count={filteredOrders.allOrders.length} 
+            onClick={() => setDisplayedOrders(filteredOrders.allOrders)}
+            children="Все"  size="small" />
+            <CustomBadgeButton count={filteredOrders.isUnaccepted.length} 
+            onClick={() => setDisplayedOrders(filteredOrders.isUnaccepted)}
+            children="Непринятые"  size="small" />
+            <CustomBadgeButton count={filteredOrders.isPrepairing.length} 
+            onClick={() => setDisplayedOrders(filteredOrders.isPrepairing)}
+            children="Готовятся"  size="small" />
+            <CustomBadgeButton count={filteredOrders.isOnWay.length} 
+            onClick={() => setDisplayedOrders(filteredOrders.isOnWay)}
+            children="В пути"  size="small" />
+            {/* <Badge 
             count={ filteredOrders.isUnaccepted.length}
             >
                 <Button size="small" style={{backgroundColor:"#f7f7f7"}} onClick={() => changeDisplayedOrders("isUnaccepted")}>Непринятые</Button>
@@ -173,15 +211,15 @@ export default function ClOrders (){
             <Badge 
             count={filteredOrders.isPrepairing.length}
             >
-                <Button size="small" style={{backgroundColor:"#f7f7f7"}} onClick={() => changeDisplayedOrders("isOnWay")}>Готовится</Button>
+                <Button size="small" style={{backgroundColor:"#f7f7f7"}} onClick={() => changeDisplayedOrders("isPrepairing")}>Готовится</Button>
             </Badge>
             
             <Badge 
             count={filteredOrders.isOnWay.length} 
             >
-                <Button  size="small" style={{backgroundColor:"#f7f7f7"}} onClick={() => changeDisplayedOrders("isPrepairing")}>В пути </Button>
-            </Badge>
-
+                <Button  size="small" style={{backgroundColor:"#f7f7f7"}} onClick={() => changeDisplayedOrders("isOnWay")}>В пути </Button>
+            </Badge> */}
+                
                 </Row>
                 <Divider style={{margin: "0 0 10px 0",padding:"0 10px 0 10px"}}/>
                 <Content className='overflow-y-scroll height-415'>
