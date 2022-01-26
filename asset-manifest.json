@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cron-react-test/static/css/main.264e1653.css",
-    "main.js": "/cron-react-test/static/js/main.c76a3b01.js",
-    "static/js/787.8f49eced.chunk.js": "/cron-react-test/static/js/787.8f49eced.chunk.js",
-    "index.html": "/cron-react-test/index.html",
-    "main.264e1653.css.map": "/cron-react-test/static/css/main.264e1653.css.map",
-    "main.c76a3b01.js.map": "/cron-react-test/static/js/main.c76a3b01.js.map",
-    "787.8f49eced.chunk.js.map": "/cron-react-test/static/js/787.8f49eced.chunk.js.map"
+    "main.css": "/static/css/main.abbf3088.css",
+    "main.js": "/static/js/main.9e22344f.js",
+    "static/js/787.8f49eced.chunk.js": "/static/js/787.8f49eced.chunk.js",
+    "index.html": "/index.html",
+    "main.abbf3088.css.map": "/static/css/main.abbf3088.css.map",
+    "main.9e22344f.js.map": "/static/js/main.9e22344f.js.map",
+    "787.8f49eced.chunk.js.map": "/static/js/787.8f49eced.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.264e1653.css",
-    "static/js/main.c76a3b01.js"
+    "static/css/main.abbf3088.css",
+    "static/js/main.9e22344f.js"
   ]
 }
