@@ -155,7 +155,7 @@ export default function OrderDetails ({orderCardDescription,changeOrderStatus}) 
                     
                 
                 </div>)} */}
-                <AdditionalList order={order}/>
+                {order.map(ord => <AdditionalList order={ord}/>)}
 
                 <Col>
                 <Row style={{marginTop:"100px"}} className='font-weight-600' >Комментарии к заказу</Row>

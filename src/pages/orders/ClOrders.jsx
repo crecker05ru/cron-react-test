@@ -16,20 +16,23 @@ export default function ClOrders (){
     const [selected,setSelected] = React.useState(false)
     console.log('displayedOrders',displayedOrders)
     
-    // function sortArray (arr) {
-    //     return arr.sort((a,b) => {
-    //         if(a.date < b.date) return -1
-    //         else if(a.date > b.date)  return +1
-    //         else if(a.date == b.date)  {
-    //             if(a.time < b.time) return -1
-    //             else if(a.time > b.time) return +1
-    //             return 0
-    //         }
-    //     })
-    // }
+    function sortArray (arr) {
+        return arr.sort((a,b) => {
+            if(a.date < b.date) return -1
+            else if(a.date > b.date)  return +1
+            else if(a.date == b.date)  {
+                if(a.time < b.time) return -1
+                else if(a.time > b.time) return +1
+                return 0
+            }
+        })
+    }
 
     // React.useEffect(() => {
+    //     if(displayedOrders){
+    //         sortArray(displayedOrders)
     //         console.log('sort',sortArray(displayedOrders))
+    //     }  
     // },[displayedOrders])
 
     const filteredOrders = React.useMemo(() => {
@@ -141,12 +144,15 @@ export default function ClOrders (){
     },[searchQuery,setClientOrders])
 
     React.useEffect(() => {
-        setClientOrders(orders)
+        setClientOrders(sortArray(orders))
         setDisplayedOrders(filteredOrders.allOrders)
         // setDisplayedOrders(allOrders.allOrders)
         if(!selected){
             setOrderCardDescription(orders[0])
         }
+        // sortArray(clientsOrders)
+        console.log('sort',sortArray(clientsOrders))
+
     },[orders,clientsOrders])
      
     return (
